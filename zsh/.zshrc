@@ -58,10 +58,22 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Fuzzy finder
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=500000
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Fuzzy finder (brew install)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. (brew install)
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -84,7 +96,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# nvim
+# nvim (brew install)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -94,6 +106,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# Zoxide
+# Zoxide (brew install)
 eval "$(zoxide init --cmd cd zsh)"
 
+# zsh-syntax-highlighting (brew install)
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
