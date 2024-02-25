@@ -1,0 +1,37 @@
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	quotepath = false
+[user]
+	name = Dan Cohn
+	email = dacohn@gmail.com
+[include]
+	path = ~/.gitconfig.local
+[color]
+	ui = true
+[merge]
+	log = true
+
+[alias]
+	df = diff -w
+	bl = blame -w
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
+	vimdiff = mergetool -t vimdiff
+	m = branch -r --merged
+	nm = branch -r --no-merged
+	logp = log -p -w
+	discard = checkout -p --
+	ignored = ls-files --others -i --exclude-standard
+	delete-last-commit = reset --hard HEAD~1
+	undocommit = reset --mixed HEAD^
+	restore2 = "!f() { git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1" }; f"
+
+[push]
+	default = upstream
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[credential]
+	helper = osxkeychain
