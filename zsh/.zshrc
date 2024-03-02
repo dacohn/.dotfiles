@@ -87,6 +87,9 @@ alias rgrep="grep -Ir --exclude-dir .terraform --exclude-dir .git --exclude-dir 
 alias v="nvim -u NONE"
 alias vi="nvim"
 alias vim="nvim"
+alias fvi="fzf --bind 'enter:become(vim{})'"
+alias master="git checkout master && git fetch origin master && git reset --hard origin/master"
+alias main="git checkout main && git fetch origin main && git reset --hard origin/main"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
